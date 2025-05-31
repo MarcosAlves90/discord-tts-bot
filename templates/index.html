@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bot de Voz para Discord</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="container mx-auto px-4 py-8">
+        <header class="text-center mb-12">
+            <div class="flex justify-center mb-4">
+                <div class="bg-indigo-600 p-4 rounded-full">
+                    <i class="fas fa-robot text-4xl"></i>
+                </div>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold text-indigo-400">Bot de Voz para Discord</h1>
+            <p class="mt-4 text-xl text-gray-300">Um bot simples que entra em canais de voz e fala mensagens usando conversão de texto para fala.</p>
+        </header>
+
+        <div class="bg-indigo-800 rounded-lg p-4 mb-8 flex items-center justify-between">
+            <span class="text-lg">Status do Servidor:</span>
+            <span class="flex items-center">
+                <span class="h-3 w-3 bg-green-500 rounded-full inline-block mr-2"></span>
+                Online
+            </span>
+        </div>
+
+        <section class="bg-gray-800 rounded-lg p-6 mb-8">
+            <h2 class="text-2xl font-bold mb-3 text-indigo-300">Sobre esta implementação</h2>
+            <p class="text-gray-300">
+                Este servidor web mantém o bot ativo na plataforma Render, que exige uma porta HTTP exposta.
+                Esta é uma alternativa gratuita aos background workers pagos da Render.
+            </p>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-2xl font-bold mb-6 text-indigo-300">Funcionalidades</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-gray-800 p-6 rounded-lg">
+                    <div class="text-indigo-400 text-xl mb-2">
+                        <i class="fas fa-sign-in-alt mr-2"></i>
+                        /entrar
+                    </div>
+                    <p class="text-gray-300">Faz o bot entrar no canal de voz em que você está.</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg">
+                    <div class="text-indigo-400 text-xl mb-2">
+                        <i class="fas fa-sign-out-alt mr-2"></i>
+                        /sair
+                    </div>
+                    <p class="text-gray-300">Desconecta o bot do canal de voz atual.</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg">
+                    <div class="text-indigo-400 text-xl mb-2">
+                        <i class="fas fa-comment-dots mr-2"></i>
+                        /falar [texto]
+                    </div>
+                    <p class="text-gray-300">Converte o texto fornecido em fala e reproduz no canal de voz.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-2xl font-bold mb-6 text-indigo-300">Como usar</h2>
+            <div class="bg-gray-800 p-6 rounded-lg">
+                <ol class="list-decimal pl-5 space-y-2 text-gray-300">
+                    <li>Adicione o bot ao seu servidor Discord</li>
+                    <li>Entre em um canal de voz</li>
+                    <li>Use o comando <code class="bg-gray-700 px-2 py-1 rounded">/entrar</code> para trazer o bot para o canal</li>
+                    <li>Use <code class="bg-gray-700 px-2 py-1 rounded">/falar [sua mensagem]</code> para fazer o bot falar</li>
+                    <li>Use <code class="bg-gray-700 px-2 py-1 rounded">/sair</code> quando terminar</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-2xl font-bold mb-6 text-indigo-300">Requisitos Técnicos</h2>
+            <div class="bg-gray-800 p-6 rounded-lg">
+                <ul class="list-disc pl-5 space-y-2 text-gray-300">
+                    <li>Python 3.11</li>
+                    <li>FFmpeg</li>
+                    <li>Token de Bot do Discord</li>
+                    <li>Bibliotecas: discord.py, python-dotenv, gtts</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-2xl font-bold mb-6 text-indigo-300">Instalação</h2>
+            
+            <div class="mb-4">
+                <h3 class="text-xl font-semibold mb-3 text-indigo-200">Usando Docker (Recomendado)</h3>
+                <div class="bg-gray-800 p-4 rounded-lg">
+                    <ol class="list-decimal pl-5 space-y-2 text-gray-300">
+                        <li>Clone o repositório</li>
+                        <li>Crie um arquivo <code class="bg-gray-700 px-2 py-1 rounded">.env</code> com seu token</li>
+                        <li>Construa e execute a imagem Docker:</li>
+                    </ol>
+                    <div class="bg-black mt-3 p-3 rounded text-green-400 font-mono text-sm overflow-x-auto">
+                        docker build -t discord-voice-bot .<br>
+                        docker run -d discord-voice-bot
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="text-xl font-semibold mb-3 text-indigo-200">Instalação manual</h3>
+                <div class="bg-gray-800 p-4 rounded-lg">
+                    <ol class="list-decimal pl-5 space-y-2 text-gray-300">
+                        <li>Clone o repositório</li>
+                        <li>Instale as dependências:</li>
+                        <div class="bg-black mt-2 mb-2 p-3 rounded text-green-400 font-mono text-sm overflow-x-auto">
+                            pip install discord.py python-dotenv gtts
+                        </div>
+                        <li>Instale o FFmpeg no seu sistema</li>
+                        <li>Crie um arquivo <code class="bg-gray-700 px-2 py-1 rounded">.env</code> com seu token</li>
+                        <li>Execute o bot:</li>
+                        <div class="bg-black mt-2 p-3 rounded text-green-400 font-mono text-sm overflow-x-auto">
+                            python bot.py
+                        </div>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <footer class="mt-12 text-center text-gray-500 text-sm">
+            <p>&copy; 2025 <a href="https://github.com/MarcosAlves90" class="text-indigo-400 hover:underline" target="_blank" rel="noopener">Marcos Alves</a>. Todos os direitos reservados.</p>
+            <p class="mt-2">Hospedado na plataforma Render</p>
+        </footer>
+    </div>
+</body>
+</html>

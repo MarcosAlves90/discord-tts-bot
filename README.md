@@ -1,7 +1,10 @@
-
 # Bot de Voz para Discord
 
 Um bot simples que entra em canais de voz e fala mensagens usando conversão de texto para fala.
+
+## Sobre esta branch
+
+Esta branch existe para permitir a execução do bot na plataforma Render, que exige que a aplicação exponha uma porta HTTP para funcionar corretamente. Por isso, foi adicionado um pequeno servidor web (arquivo [`keepalive.py`](keepalive.py)) que responde em uma porta específica. O ideal seria rodar o bot como um background worker, mas essa funcionalidade é paga na Render, então utilizamos essa solução alternativa para manter o bot ativo gratuitamente.
 
 ## Funcionalidades
 
