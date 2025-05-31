@@ -8,7 +8,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN pip install --no-cache-dir discord.py python-dotenv gtts
+RUN pip install --no-cache-dir discord.py python-dotenv gtts flask
 
 ENV PYTHONUNBUFFERED=1
 

@@ -6,6 +6,9 @@ from gtts import gTTS
 import tempfile
 import asyncio
 
+import keepalive
+keepalive.start_keepalive()
+
 class MyClient(discord.Client):
     def __init__(self, *, intents: discord.Intents):
         super().__init__(intents=intents)
