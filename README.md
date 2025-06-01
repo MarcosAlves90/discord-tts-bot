@@ -42,7 +42,7 @@ O bot oferece os seguintes comandos:
 2. Instale as dependências:
 
    ```powershell
-   pip install discord.py python-dotenv gtts
+   pip install discord.py python-dotenv gtts pynacl
    ```
 
 3. Instale o FFmpeg no seu sistema

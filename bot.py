@@ -47,7 +47,7 @@ async def falar(interaction: discord.Interaction, texto: str):
         await interaction.response.send_message("Eu preciso estar em um canal de voz para falar! Me chama primeiro usando o comando /entrar.", ephemeral=True)
         return
     usuario = interaction.user.display_name
-    frase = f"{usuario} pediu para eu dizer: {texto}"
+    frase = f"{usuario} disse: {texto}"
     await interaction.response.send_message(f"Pode deixar, vou falar: {texto}", ephemeral=True)
     with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as fp:
         tts = gTTS(text=frase, lang='pt')
